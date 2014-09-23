@@ -3,10 +3,8 @@ SelectorButton
 
 Custom button that can implement click effect don't need create a selector.xml
 
-=====================================
 How To Use
---------------------------------------------------
-************************************
+
 0. init /res/values/attrs.xml
 <resources>
      <declare-styleable name="SelectorButton">
@@ -14,7 +12,7 @@ How To Use
         <attr name="pressed_drawable" format="reference" />
 　　</declare-styleable>
 </resources>
-************************************
+
 1.Create a class SeletorButton to extends  Button
 
 package com.example.mybutton;
@@ -71,11 +69,11 @@ public class SelectorButton extends Button {
 		array.recycle();
 	}
 }
-************************************
-2. use  in xml
-<!-- First you should define a namespace --!>
- xmlns:zyh="http://schemas.android.com/apk/res/com.example.mybutton"
-<!--use SelectorButton--!>
+
+2. use  in xml 
+2.1 First you should define a namespace 
+    xmlns:zyh="http://schemas.android.com/apk/res/com.example.mybutton"
+2.2 use SelectorButton
  <com.example.mybutton.SelectorButton
         android:id="@+id/btn"
         android:layout_width="wrap_content"
@@ -84,7 +82,7 @@ public class SelectorButton extends Button {
         zyh:normal_drawable="@drawable/exam_list_bg_default"
         zyh:pressed_drawable="@drawable/exam_list_bg_pressed" />
 
-example: main.xml
+2.3 example: main.xml
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:zyh="http://schemas.android.com/apk/res/com.example.mybutton"
@@ -95,7 +93,6 @@ example: main.xml
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.mybutton.MainActivity" >
-
     <com.example.mybutton.SelectorButton
         android:id="@+id/btn"
         android:layout_width="wrap_content"
@@ -105,7 +102,6 @@ example: main.xml
         zyh:pressed_drawable="@drawable/exam_list_bg_pressed" />
 </RelativeLayout>
 
-************************************
 3. use in code.java
 
 SelectorButton mButton = findViewById(R.id.button);
