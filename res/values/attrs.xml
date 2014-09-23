@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+     <declare-styleable name="SelectorButton">
+        <attr name="normal_drawable" format="reference" />
+        <attr name="pressed_drawable" format="reference" />
+　　</declare-styleable>
+</resources>
