@@ -6,6 +6,15 @@ Custom button that can implement click effect don't need create a selector.xml
 =====================================
 How To Use
 --------------------------------------------------
+************************************
+0. init /res/values/attrs.xml
+<resources>
+     <declare-styleable name="SelectorButton">
+        <attr name="normal_drawable" format="reference" />
+        <attr name="pressed_drawable" format="reference" />
+　　</declare-styleable>
+</resources>
+************************************
 1.Create a class SeletorButton to extends  Button
 
 package com.example.mybutton;
@@ -59,13 +68,11 @@ public class SelectorButton extends Button {
 		seletor.addState(new int[] { android.R.attr.state_focused }, p);
 		seletor.addState(new int[] {}, n);
 		this.setBackgroundDrawable(seletor);
-		// this.setBackgroundDrawable(p);
 		array.recycle();
 	}
 }
-===========================
+************************************
 2. use  in xml
-
 <!-- First you should define a namespace --!>
  xmlns:zyh="http://schemas.android.com/apk/res/com.example.mybutton"
 <!--use SelectorButton--!>
@@ -76,7 +83,7 @@ public class SelectorButton extends Button {
         android:text="button"
         zyh:normal_drawable="@drawable/exam_list_bg_default"
         zyh:pressed_drawable="@drawable/exam_list_bg_pressed" />
-===
+
 example: main.xml
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -97,8 +104,8 @@ example: main.xml
         zyh:normal_drawable="@drawable/exam_list_bg_default"
         zyh:pressed_drawable="@drawable/exam_list_bg_pressed" />
 </RelativeLayout>
-==========================
 
+************************************
 3. use in code.java
 
 SelectorButton mButton = findViewById(R.id.button);
