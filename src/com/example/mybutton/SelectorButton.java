@@ -24,14 +24,12 @@ public class SelectorButton extends Button {
 	 */
 	public SelectorButton(Context context, AttributeSet attrs) {
 		super(context, attrs);
-
 		StateListDrawable seletor = new StateListDrawable();// 背景选择器
 		Drawable n = null;
 		Drawable p = null;
-
 		TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.SelectorButton);
 		int count = array.getIndexCount();// 获取属性个数
-		System.out.println("count:" + count);
+		// System.out.println("count:" + count);
 		for (int i = 0; i < count; i++) {
 			int index = array.getIndex(i);
 			System.out.println("index:" + index);
@@ -45,11 +43,32 @@ public class SelectorButton extends Button {
 					break;
 			}
 		}
-		seletor.addState(new int[] { android.R.attr.state_pressed }, p);
-		seletor.addState(new int[] { android.R.attr.state_focused }, p);
-		seletor.addState(new int[] {}, n);
-		this.setBackgroundDrawable(seletor);
+		if (count >= 2) {
+			// 注意addState顺序，必须最后 normal的
+			seletor.addState(new int[] { android.R.attr.state_pressed }, p);
+			seletor.addState(new int[] { android.R.attr.state_focused }, p);
+			seletor.addState(new int[] {}, n);
+			this.setBackgroundDrawable(seletor);
+			seletor = null;
+		}
 		// this.setBackgroundDrawable(p);
 		array.recycle();
 	}
+
+	/**
+	 * 设置背景选择器的两张图片
+	 * @param normalDrawable
+	 * @param pressedDrawable
+	 */
+	public void setSelecorDrawable(Drawable normalDrawable, Drawable pressedDrawable) {
+		System.out.println("nn:" + normalDrawable);
+		System.out.println("pp:" + pressedDrawable);
+		StateListDrawable seletor = new StateListDrawable();
+		seletor.addState(new int[] { android.R.attr.state_pressed }, pressedDrawable);
+		seletor.addState(new int[] { android.R.attr.state_focused }, pressedDrawable);
+		seletor.addState(new int[] {}, normalDrawable);
+		this.setBackgroundDrawable(seletor);
+		seletor = null;
+	}
+
 }
