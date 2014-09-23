@@ -3,9 +3,9 @@ SelectorButton
 
 Custom button that can implement click effect don't need create a selector.xml
 
-
+=====================================
 How To Use
-
+--------------------------------------------------
 1.Create a class SeletorButton to extends  Button
 
 package com.example.mybutton;
@@ -63,8 +63,7 @@ public class SelectorButton extends Button {
 		array.recycle();
 	}
 }
-
-
+===========================
 2. use  in xml
 
 <!-- First you should define a namespace --!>
@@ -77,8 +76,7 @@ public class SelectorButton extends Button {
         android:text="button"
         zyh:normal_drawable="@drawable/exam_list_bg_default"
         zyh:pressed_drawable="@drawable/exam_list_bg_pressed" />
-
----------------------------------------
+===
 example: main.xml
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -99,3 +97,11 @@ example: main.xml
         zyh:normal_drawable="@drawable/exam_list_bg_default"
         zyh:pressed_drawable="@drawable/exam_list_bg_pressed" />
 </RelativeLayout>
+==========================
+
+3. use in code.java
+
+SelectorButton mButton = findViewById(R.id.button);
+Drawable normalDrawable = getResources().getDrawable(R.drawable.btn_normal);
+Drawable pressedDrawable = getResources().getDrawable(R.drawable.btn_pressed);
+mButton.setSelecorDrawable(normalDrawable, pressedDrawable);
